@@ -8,7 +8,8 @@ import spark.Spark.*
 
 fun main(args: Array<String>){
     val puertoEnv = System.getenv("PORT")
-    val puerto: Int = if(puertoEnv == null) 8080 else Integer.getInteger(puertoEnv)
+    println("puertoEnv" + puertoEnv)
+    val puerto: Int = puertoEnv?.toInt() ?: 8080
     port(puerto)
     val repositorioUsuarios = RepositorioUsuariosPrueba()
     val listadorDeUsuarios = ListadorDeUsuarios(repositorioUsuarios)
